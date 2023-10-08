@@ -1,13 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Card } from "flowbite-react";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 import { RateDolar } from "../types";
 import { fetchRateDolar } from "../request";
 import { ResponseExgange } from "../types";
 import Calculator from "./Calculator";
 
-const Container = () => {
+const Container = () =>
+{
+  const day = dayjs()
   const [rateDolar, setRateDolar] = useState<RateDolar>({
     today_dolar: 0,
     monitor_dolar: 0,
@@ -73,10 +75,7 @@ const Container = () => {
             <h5 className="text-2xl text-center tracking-tight text-gray-900">
               <p>
                 Resultado de tasa del Dolar para fecha:{" "}
-                <span className="font-bold">
-                  {" "}
-                  {dayjs().format("DD/MM/YYYY")}
-                </span>
+                <span className="font-bold"> {day.format("DD/MM/YYYY")}</span>
               </p>
             </h5>
             <div className="mt-2 text-3xl text-black">
