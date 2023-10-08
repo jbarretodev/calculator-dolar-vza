@@ -10,11 +10,11 @@ export interface CheckRate
   amount: number,
   action: string
 }
-
 export interface RateDolarCalculated {
-  dToday: number;
-  dBcv: number;
-  dCucuta: number;
+  dolarToday: number;
+  dolarBcv: number;
+  dolarMonitor: number;
+  dolarBinance: number;
 }
 
 export type ResponseExgange = {
