@@ -23,6 +23,12 @@ const InfoDolar = ({ rate }: { rate: RateDolar }) => {
   return (
     <>
       <section>
+        <h2 className="font-bold text-3xl">Calculador de Dolares</h2>
+        <p className="text-xl">
+          Ingresa la cantidad de dolares que deseas calcular
+        </p>
+        <br />
+        <br />
         <form>
           <TextInput
             id="quantity"
