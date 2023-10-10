@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { RateDolar } from "../types";
 import { Button, TextInput } from "flowbite-react";
