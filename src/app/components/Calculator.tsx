@@ -8,6 +8,7 @@ import { RateDolarCalculated } from "../types";
 const InfoDolar = ({ rate }: { rate: RateDolar }) => {
   const [quantity, setQuantity] = useState<number>(0);
   const [result, setResult] = useState<RateDolarCalculated | undefined>();
+
   const calculateAmount = (quantity: number) => {
     if (quantity > 0) {
       setResult({
@@ -34,7 +35,8 @@ const InfoDolar = ({ rate }: { rate: RateDolar }) => {
             type="text"
           />
           <Button
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               calculateAmount(quantity);
             }}
             className="font-bold text-xl w-full"

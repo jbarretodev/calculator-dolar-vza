@@ -7,9 +7,8 @@ import { fetchRateDolar } from "../request";
 import { ResponseExgange } from "../types";
 import Calculator from "./Calculator";
 
-const Container = () =>
-{
-  const day = dayjs()
+const Container = () => {
+  const day = dayjs();
   const [rateDolar, setRateDolar] = useState<RateDolar>({
     today_dolar: 0,
     monitor_dolar: 0,
@@ -74,7 +73,8 @@ const Container = () =>
           <section>
             <h5 className="text-2xl text-center tracking-tight text-gray-900">
               <p>
-                Resultado de tasa del Dolar para fecha:{" "}
+                Resultado de las diferentes tasas del Dolar en Venzuela para
+                fecha:{" "}
                 <span className="font-bold"> {day.format("DD/MM/YYYY")}</span>
               </p>
             </h5>
@@ -84,16 +84,16 @@ const Container = () =>
                 {rateDolar.bcv_dolar}
               </p>
               <p>
+                <span className="font-bold">Tasa Today: </span>
+                {rateDolar.today_dolar}
+              </p>
+              <p>
                 <span className="font-bold">Tasa Binance: </span>
                 {rateDolar.binance_dolar}
               </p>
               <p>
                 <span className="font-bold">Tasa Monitor: </span>
                 {rateDolar.monitor_dolar}
-              </p>
-              <p>
-                <span className="font-bold">Tasa Today: </span>
-                {rateDolar.today_dolar}
               </p>
             </div>
           </section>
