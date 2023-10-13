@@ -60,19 +60,29 @@ const InfoDolar = ({ rate }: { rate: RateDolar }) => {
             </p>
             <br />
             <p>
-              Tasa Monitor:{" "}
-              <span className="text-xl">{result.dolarMonitor}</span>
-            </p>
-            <p>
-              Tasa Today: <span className="text-xl">{result.dolarToday}</span>
+              Tasa BCV:{" "}
+              <span className="text-xl">
+                {Number.parseFloat(result.dolarBcv.toString()).toFixed(2)}
+              </span>
             </p>{" "}
             <p>
-              Tasa BCV: <span className="text-xl">{result.dolarBcv}</span>
+              Tasa Today:{" "}
+              <span className="text-xl">
+                {Number.parseFloat(result.dolarToday.toString()).toFixed(2)}
+              </span>
             </p>{" "}
             <p>
               Tasa Binance:{" "}
-              <span className="text-xl">{result.dolarBinance}</span>
+              <span className="text-xl">
+                {Number.parseFloat(result.dolarBinance.toString()).toFixed(2)}
+              </span>
             </p>{" "}
+            <p>
+              Tasa Monitor:{" "}
+              <span className="text-xl">
+                {Number.parseFloat(result.dolarMonitor.toString()).toFixed(2)}
+              </span>
+            </p>
           </div>
         )}
       </section>

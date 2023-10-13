@@ -6,6 +6,7 @@ import { RateDolar } from "../types";
 import { fetchRateDolar } from "../request";
 import { ResponseExgange } from "../types";
 import Calculator from "./Calculator";
+import toast from "react-hot-toast";
 
 const Container = () => {
   const day = dayjs();
@@ -31,6 +32,8 @@ const Container = () => {
           "5d5e08bb639f395c7fd11da9",
           "6074ce4911a4ee4648eb7e92",
         ];
+
+        toast.success("Tasas del Dolar obtenidas con exito!");
 
         const platformValidRates = res.filter((item: ResponseExgange) => {
           return listIdPlatformValid.includes(item._id as string);
@@ -62,6 +65,10 @@ const Container = () => {
         }
 
         setRateDolar(state);
+      } else {
+        toast.error(
+          "Error al obtener las tasas del Dolar en Venezuela, por favor recarge la pagina una vez mas!"
+        );
       }
     });
   }, []);
