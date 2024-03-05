@@ -5,6 +5,10 @@ export interface RateDolar {
   binance_dolar: number;
 }
 
+export interface TypeOperation{
+  operation: string
+}
+
 export interface CheckRate
 {
   amount: number,

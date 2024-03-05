@@ -1,20 +1,33 @@
 "use client";
 import { useState } from "react";
-import { RateDolar } from "../types";
+import { RateDolar, TypeOperation } from "../types";
 import { Button, TextInput } from "flowbite-react";
 import { RateDolarCalculated } from "../types";
+import toast from "react-hot-toast";
 
-const InfoDolar = ({ rate }: { rate: RateDolar }) => {
+const InfoDolar = ({ operation,rate }: { rate: RateDolar, operation:TypeOperation }) => {
   const [quantity, setQuantity] = useState<number>(0);
   const [result, setResult] = useState<RateDolarCalculated | undefined>();
 
   const calculateAmount = (quantity: number) => {
-    if (quantity > 0) {
+    if(operation.operation === '-'){
+      toast.error("Error! Debe Seleccionar una operacion!");
+      return false
+    }
+
+    if (quantity > 0 && operation.operation === '0') {
       setResult({
         dolarToday: quantity * rate.today_dolar,
         dolarBcv: quantity * rate.bcv_dolar,
         dolarMonitor: quantity * rate.monitor_dolar,
         dolarBinance: quantity * rate.binance_dolar,
+      });
+    }else{
+      setResult({
+        dolarToday: quantity / rate.today_dolar,
+        dolarBcv: quantity / rate.bcv_dolar,
+        dolarMonitor: quantity / rate.monitor_dolar,
+        dolarBinance: quantity / rate.binance_dolar,
       });
     }
   };

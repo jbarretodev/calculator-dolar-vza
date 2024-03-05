@@ -1,8 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Card } from "flowbite-react";
+import { Card,Select } from "flowbite-react";
 import dayjs from "dayjs";
-import { RateDolar } from "../types";
+import { RateDolar, TypeOperation } from "../types";
+import { Operation } from "../enums";
 import { fetchRateDolar } from "../request";
 import { ResponseExgange } from "../types";
 import Calculator from "./Calculator";
@@ -16,6 +17,10 @@ const Container = () => {
     bcv_dolar: 0,
     binance_dolar: 0,
   });
+
+  const [operation, setOperation] = useState<TypeOperation>({
+    operation: "-"
+  })
 
   useEffect(() => {
     fetchRateDolar("https://exchange.vcoud.com/coins/latest", {
@@ -105,7 +110,17 @@ const Container = () => {
             </div>
           </section>
           <section className="text-black">
-            <Calculator rate={rateDolar} />
+          <Select 
+                name="operation" 
+                id="operation" 
+                value={operation.operation} 
+                onChange={(e) => setOperation({operation: e.target.value})}
+                >
+                <option value="-">Seleccione la operacion</option>
+                <option value={Operation.dolarToVes}>Dolar a Bolivares</option>
+                <option value={Operation.vesToDolar}>Bolivares a Dolares</option>
+              </Select>
+            <Calculator operation={operation} rate={rateDolar} />
           </section>
         </div>
       </Card>
