@@ -16,6 +16,10 @@ export const metadata: Metadata = {
       url: "https://github.com/jbarretodev",
     },
   ],
+  manifest: "/manifest.json",
+  icons:{
+    apple: "/vercel.svg"
+  }
 };
 
 export default function RootLayout({
