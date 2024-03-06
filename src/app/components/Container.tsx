@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 
 const Container = () => {
   const day = dayjs();
-  
+
   const [rateDolar, setRateDolar] = useState<RateDolar>({
     today_dolar: 0,
     monitor_dolar: 0,
@@ -86,7 +86,7 @@ const Container = () => {
           <section>
             <h5 className="text-2xl text-center tracking-tight text-gray-900">
               <p>
-                Resultado de las diferentes tasas del Dolar en Venzuela para
+                Resultado de las diferentes tasas del Dólar en Venzuela para
                 fecha:{" "}
                 <span className="font-bold"> {day.format("DD/MM/YYYY")}</span>
               </p>
@@ -117,9 +117,9 @@ const Container = () => {
                 value={operation.operation} 
                 onChange={(e) => setOperation({operation: e.target.value})}
                 >
-                <option value="-">Seleccione la operacion</option>
-                <option value={Operation.dolarToVes}>Dolar a Bolivares</option>
-                <option value={Operation.vesToDolar}>Bolivares a Dolares</option>
+                <option value="-">Seleccione la operación</option>
+                <option value={Operation.dolarToVes}>Dólar a Bolivares</option>
+                <option value={Operation.vesToDolar}>Bolivares a Dólares</option>
               </Select>
             <Calculator operation={operation} rate={rateDolar} />
           </section>

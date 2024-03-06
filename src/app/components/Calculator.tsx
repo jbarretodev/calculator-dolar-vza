@@ -35,9 +35,10 @@ const InfoDolar = ({ operation,rate }: { rate: RateDolar, operation:TypeOperatio
   return (
     <>
       <section>
-        <h2 className="font-bold text-3xl">Calculador de Dolares</h2>
+        <br />
+        <h2 className="font-bold text-3xl">Calculador de Dólares</h2>
         <p className="text-xl">
-          Ingresa la cantidad de dolares que deseas calcular
+          Ingresa la cantidad que deseas calcular
         </p>
         <br />
         <br />
@@ -68,7 +69,7 @@ const InfoDolar = ({ operation,rate }: { rate: RateDolar, operation:TypeOperatio
         {result && (
           <div className="font-bold">
             <p className="font-bold">
-              Cantidad de dolares a calcular:
+              Cantidad de dólares a calcular:
               <span className="text-2xl">{quantity}</span>
             </p>
             <br />
