@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 
 const Container = () => {
   const day = dayjs();
+  
   const [rateDolar, setRateDolar] = useState<RateDolar>({
     today_dolar: 0,
     monitor_dolar: 0,
