@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +18,9 @@ export const metadata: Metadata = {
     },
   ],
   manifest: "/manifest.json",
-  icons:{
-    apple: "/vercel.svg"
-  }
+  icons: {
+    apple: "/vercel.svg",
+  },
 };
 
 export default function RootLayout({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Toaster />
         {children}
+        <Script src="/service-worker.js" />
       </body>
     </html>
   );
