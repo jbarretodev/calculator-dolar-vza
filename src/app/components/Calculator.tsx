@@ -5,24 +5,30 @@ import { Button, TextInput } from "flowbite-react";
 import { RateDolarCalculated } from "../types";
 import toast from "react-hot-toast";
 
-const InfoDolar = ({ operation,rate }: { rate: RateDolar, operation:TypeOperation }) => {
-  const [quantity, setQuantity] = useState<number>(0);
+const InfoDolar = ({
+  operation,
+  rate,
+}: {
+  rate: RateDolar;
+  operation: TypeOperation;
+}) => {
+  const [quantity, setQuantity] = useState<string>("");
   const [result, setResult] = useState<RateDolarCalculated | undefined>();
 
   const calculateAmount = (quantity: number) => {
-    if(operation.operation === '-'){
+    if (operation.operation === "-") {
       toast.error("Error! Debe Seleccionar una operacion!");
-      return false
+      return false;
     }
 
-    if (quantity > 0 && operation.operation === '0') {
+    if (quantity > 0 && operation.operation === "0") {
       setResult({
         dolarToday: quantity * rate.today_dolar,
         dolarBcv: quantity * rate.bcv_dolar,
         dolarMonitor: quantity * rate.monitor_dolar,
         dolarBinance: quantity * rate.binance_dolar,
       });
-    }else{
+    } else {
       setResult({
         dolarToday: quantity / rate.today_dolar,
         dolarBcv: quantity / rate.bcv_dolar,
@@ -37,9 +43,7 @@ const InfoDolar = ({ operation,rate }: { rate: RateDolar, operation:TypeOperatio
       <section>
         <br />
         <h2 className="font-bold text-3xl">Calculador de Dólares</h2>
-        <p className="text-xl">
-          Ingresa la cantidad que deseas calcular
-        </p>
+        <p className="text-xl">Ingresa la cantidad que deseas calcular</p>
         <br />
         <br />
         <form>
@@ -49,14 +53,14 @@ const InfoDolar = ({ operation,rate }: { rate: RateDolar, operation:TypeOperatio
             placeholder="Cantidad de dolares a calcular"
             required
             value={quantity}
-            onChange={(e) => setQuantity(Number(e.target.value))}
+            onChange={(e) => setQuantity(e.target.value)}
             shadow
             type="text"
           />
           <Button
             onClick={(e) => {
               e.preventDefault();
-              calculateAmount(quantity);
+              calculateAmount(Number(quantity));
             }}
             className="font-bold text-xl w-full"
             gradientDuoTone="purpleToBlue"
